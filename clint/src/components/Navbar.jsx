@@ -1,9 +1,21 @@
 import React, { useState } from "react";
 import { assets } from "../assets/assets";
 import { Link } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
 
 const Navbar = () => {
+  const isMobile = useMediaQuery({
+    query: "(max-width: 640px)",
+  });
   const [active, setActive] = useState("home");
+  const [isMenuClicked, setIsMenuClicked] = useState(false);
+
+  const handleMenu = () => {
+    if (isMobile) {
+      setIsMenuClicked(!isMenuClicked);
+      console.log(isMenuClicked);
+    }
+  };
   return (
     <header className="p-4 dark:bg-gray-100 dark:text-gray-800">
       <div className="container flex justify-between h-16 mx-auto">
@@ -11,20 +23,32 @@ const Navbar = () => {
           src="https://1000logos.net/wp-content/uploads/2021/06/Zomato-logo.png"
           alt=""
         />
-        <ul className="items-center hidden space-x-3 sm:flex justify-center gap-4">
+        <ul
+          className={`items-center ${
+            !isMenuClicked
+              ? "hidden "
+              : "bg-gray-200 items-center  z-10 h-[25vh] w-[40vw] absolute right-14 top-8 rounded-sm flex flex-col "
+          } space-x-3 sm:flex justify-center gap-4`}
+        >
           <Link to="/">
             <li
-              className={`cursor-pointer ${
+              className={`cursor-pointer ml-3 ${
                 active === "home" && "text-blue-400"
               }`}
-              onClick={() => setActive("home")}
+              onClick={() => {
+                setActive("home");
+                handleMenu();
+              }}
             >
               home
             </li>
           </Link>
           <li
             className={`cursor-pointer ${active === "menu" && "text-blue-400"}`}
-            onClick={() => setActive("menu")}
+            onClick={() => {
+              setActive("menu");
+              handleMenu();
+            }}
           >
             menu
           </li>
@@ -32,7 +56,10 @@ const Navbar = () => {
             className={`cursor-pointer ${
               active === "mobile-app" && "text-blue-400"
             }`}
-            onClick={() => setActive("mobile-app")}
+            onClick={() => {
+              setActive("mobile-app");
+              handleMenu();
+            }}
           >
             mobile-app
           </li>
@@ -40,7 +67,10 @@ const Navbar = () => {
             className={`cursor-pointer ${
               active === "contact us" && "text-blue-400"
             }`}
-            onClick={() => setActive("contact us")}
+            onClick={() => {
+              setActive("contact us");
+              handleMenu();
+            }}
           >
             contact us
           </li>
@@ -62,7 +92,7 @@ const Navbar = () => {
             Sign up
           </button>
         </div>
-        <button className="p-4 sm:hidden">
+        <button className="p-4 sm:hidden" onClick={handleMenu}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
