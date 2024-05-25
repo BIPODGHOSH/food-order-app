@@ -5,6 +5,8 @@ const ExploreMenu = ({ category, setCategory }) => {
   const handleCategory = (menuName) => {
     if (category !== menuName) {
       setCategory(menuName);
+    } else {
+      setCategory("All");
     }
   };
   console.log(category);
