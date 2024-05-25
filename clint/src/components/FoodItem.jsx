@@ -52,9 +52,9 @@ const FoodItem = ({ food }) => {
         </div>
         {!imageLoading && (
           <div className="">
-            <div className="flex justify-between">
+            <div className="flex justify-between items-center">
               <h2 className="text-xl font-semibold">{food.name}</h2>
-              <img src={assets.rating_starts} alt="" />
+              <img src={assets.rating_starts} alt="" className=" w-16 h-4" />
             </div>
             <p className="text-gray-500 text-sm">{food.description}</p>
             <p className="text-lg text-red-500">₹ {food.price}</p>
