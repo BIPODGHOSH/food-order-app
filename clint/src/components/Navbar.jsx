@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import { Store } from "../context/store";
 
-const Navbar = () => {
+const Navbar = ({ showLogin, setShowLogin }) => {
+  console.log(showLogin);
   const isMobile = useMediaQuery({
     query: "(max-width: 640px)",
   });
@@ -100,7 +101,10 @@ const Navbar = () => {
           </li>
           {isMobile && (
             <li className="cursor-pointer" onClick={handleMenu}>
-              <button className="px-2 py-1 border-[1px] border-orange-700 rounded-lg hover:bg-gray-100">
+              <button
+                className="px-2 py-1 border-[1px] border-orange-700 rounded-lg hover:bg-gray-100"
+                onClick={() => setShowLogin((prev) => !prev)}
+              >
                 Sign up
               </button>
             </li>
@@ -127,7 +131,10 @@ const Navbar = () => {
           </div>
           {/* Render sign-up button outside the menu list if it's not a mobile screen */}
           {!isMobile && (
-            <button className="px-2 py-1 border-[1px] border-orange-700 rounded-lg hover:bg-gray-100">
+            <button
+              className="px-2 py-1 border-[1px] border-orange-700 rounded-lg hover:bg-gray-100"
+              onClick={() => setShowLogin((prev) => !prev)}
+            >
               Sign up
             </button>
           )}
