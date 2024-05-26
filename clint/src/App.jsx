@@ -13,11 +13,13 @@ const App = () => {
     <div className="">
       {showLogin && <Login setShowLogin={setShowLogin} />}
       <Navbar showLogin={showLogin} setShowLogin={setShowLogin} />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="order" element={<Order />} />
-      </Routes>
+      <div className="pt-32">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="order" element={<Order />} />
+        </Routes>
+      </div>
       <Footer />
     </div>
   );

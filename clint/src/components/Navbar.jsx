@@ -40,19 +40,22 @@ const Navbar = ({ showLogin, setShowLogin }) => {
   };
 
   return (
-    <header className="p-4 dark:bg-gray-100 dark:text-gray-800">
+    <header className="w-full p-4 dark:bg-gray-100 dark:text-gray-800 fixed top-0 z-50 bg-white shadow-lg">
       <div className="container flex justify-between h-16 mx-auto">
-        <img
-          src="https://1000logos.net/wp-content/uploads/2021/06/Zomato-logo.png"
-          alt=""
-        />
+        <Link to="/">
+          <img
+            src="https://1000logos.net/wp-content/uploads/2021/06/Zomato-logo.png"
+            alt=""
+            className="h-full"
+          />
+        </Link>
 
         <ul
           ref={menuRef}
           className={`items-center ${
             !isMenuClicked
               ? "hidden "
-              : "bg-gray-100 items-center  z-10 h-[25vh] w-[40vw] absolute right-14 top-8 rounded-lg flex flex-col "
+              : "bg-gray-50 items-center shadow-lg z-10 h-[30vh] w-[40vw] absolute right-8 top-8 rounded-lg flex flex-col "
           } space-x-3 sm:flex justify-center gap-4`}
         >
           <Link to="/">
@@ -124,7 +127,13 @@ const Navbar = ({ showLogin, setShowLogin }) => {
             />
           </div>
           <div className="relative w-8">
-            <img src={assets.basket_icon} alt="" />
+            <Link to="/cart">
+              <img
+                src={assets.basket_icon}
+                alt=""
+                className=" cursor-pointer"
+              />
+            </Link>
             <p className="absolute top-[-10px] right-[-8px] bg-black text-white w-6 h-6 text-center rounded-full">
               {itemsCount}
             </p>

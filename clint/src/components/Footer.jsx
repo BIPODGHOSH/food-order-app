@@ -36,13 +36,15 @@ const Footer = () => {
         </div>
         <div className="flex justify-between w-full gap-5 md:w-1/2 ">
           <div className="">
-            <h1 className="text-3xl font-semibold cursor-pointer">COMPANY</h1>
+            <h1 className="text-2xl sm:text-3xl font-semibold cursor-pointer">
+              COMPANY
+            </h1>
             <p className="cursor-pointer">Home</p>
             <p className="cursor-pointer">About Us</p>
             <p className="cursor-pointer">Privecy Pollcy</p>
           </div>
           <div className="">
-            <h1 className="text-3xl font-semibold">GET IN TOUCH</h1>
+            <h1 className="text-2xl sm:text-3xl font-semibold">GET IN TOUCH</h1>
             <p className="">+918637064446</p>
             <p className="">bipodghosh0@gmil.com</p>
           </div>
